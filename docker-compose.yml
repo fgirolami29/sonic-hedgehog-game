@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sonicphaser:
+    build: .
+    volumes:
+      - ./app:/app
+    ports:
+      - "8384:3000"
+    restart: unless-stopped  
+
+    networks:
+      - nbridge
+networks:
+  nbridge:
+    external:
+      true
